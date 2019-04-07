@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phase 1</title>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css">
+	<style>
+	body{
+	  font-size: 17px;
+	  font-family: arial;
+	  background: #f4f4f4;
+	  line-height: 1.5em;
+	}
+	header{
+	  background:#333;
+	  color:#fff;
+	  padding:20px;
+	  text-align: center;
+	  border-bottom: 4px #000 solid;
+	  margin-bottom: 10px;
+	  font-weight:bold;
+	}
+	#container{
+	  width:90%;
+	  margin:auto;
+	  padding:10px;
+	  text-align: center;
+	}
+	.formm{
+	  width: 90%;
+	  margin: auto;
+	  padding: 10px;
+	}
+
+	</style>
+
+</head>
+<body>
+	<header>
+		<h1>Student Registration</h1>
+	</header>
+<div id="container">
+
+<h3 class="text-muted">Kindly Enter Your Details</h3>
+</div>
+<form class="formm" id='form'>
+	<div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter email">
+
+  </div>
+  <div class="form-group">
+    <label for="Email1">Email address</label>
+    <input type="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+	<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputgender">Gender</label>
+      <select id="inputgender" class="form-control">
+        <option selected>Choose...</option>
+        <option>Male</option>
+				<option>Female</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+
+		<small id="accept" class="form-text text-muted">I accept that all information provided above is true.</small>
+  </div>
+  <button type="submit" class="btn btn-success" id='sub'>Submit</button>
+</form>
+<h2 style="display:none; text-align:center;" id="ty" class="text-muted">Thanks for providing the information!</h2>
+<script>
+
+$(document).ready(()=>{
+$('input').focus(function(){
+	$(this).css('background','#EAECEE');
+});
+$('input').blur(function(){
+	$(this).css('background','white');
+});
+$('select#inputgender').change(function(e){
+	alert('You are a ' + e.target.value);
+});
+$('#form').submit(function(e){
+ e.preventDefault();
+ if($('#name').val()=="")
+ {
+ 	alert('Please fill name');
+ }
+ if($("#Email1").val() == '' ){
+ 	alert("EMAIL NOT CORRECT");
+ }
+ if($("#exampleInputPassword1").val().length <8 ){
+  alert("please enter password more than 8 characters	");
+ }
+
+ else{
+ 	$('#ty').show();
+ }
+});
+
+
+});
+
+</script>
+</body>
+</html>
